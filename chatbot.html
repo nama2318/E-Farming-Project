@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .floating-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: url('https://media.istockphoto.com/id/1060696342/vector/robot-icon-chat-bot-sign-for-support-service-concept-chatbot-character-flat-style.jpg?s=612x612&w=0&k=20&c=t9PsSDLowOAhfL1v683JMtWRDdF8w5CFsICqQvEvfzY=');
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      #chatbot {
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 70px;
+        width: 300px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="floating-button" onclick="toggleChatbot()"></button>
+    <div id="chatbot">
+        <iframe
+        allow="microphone;"
+        width="350"
+        height="430"
+        src="https://console.dialogflow.com/api-client/demo/embedded/81c3f6f0-1b17-42a1-9abc-0bb170bc9c54">
+    </iframe>
+    </div>
+    <script>
+        let display=false;
+      function toggleChatbot() {
+        var chatbot = document.getElementById('chatbot');
+        if (chatbot.style.display === 'none') {
+          chatbot.style.display = 'block';
+        } else {
+          chatbot.style.display = 'none';
+        }
+       /* if (display == false) {
+                document.getElementById("div1").style.display = "block"
+                display = true
+            } else {
+                document.getElementById("div1").style.display = "none"
+                display = false
+
+            }*/
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<html>
+   <head>
+       <title>SUPPLIER Dashboard</title>
+      <!-- <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">-->
+       <meta http-equiv="X-UA Compatible" content="IE-edge">
+       <link rel="stylesheet" href="css/style.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+       <script src="graph.js"></script>
+   </head>
+
+   <body>
+       <div class="navbar">
+           <a href="#"><i class="logo"></i> AGRO-ONE</a>
+           <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+           <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+           <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+           <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+         </div>
+       <div class="content">
+           <div class="sidebar">
+               
+               <nav>
+               <ul>
+                   <a href="#"onclick="dashboard();"><li>DASHBOARD</li></a>
+                   <a href="#" onclick="postadv();"><li>POST ADVERTISEMENT</li></a>
+                    <a href="#" onclick="crops();"><li>CROPS RECIEVED</li></a>
+                   
+                   <li>LOGOUT</li>
+               </ul>
+           </nav>
+           </div>
+
+         
+       <div class="container" id="div1">
+        <form>
+          <label for="photo">Photo:</label>
+          <input type="file" id="photo" name="photo">
+          
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+          
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea>
+          
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" required>
+          
+          <label for="contact">Contact:</label>
+          <input type="text" id="contact" name="contact" required>
+          
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required>
+          
+          <label for="locality">Locality:</label>
+          <input type="text" id="locality" name="locality" required>
+          
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+       <script>
+        let display = false
+             
+         function postadv() {
+            document.getElementById("div2").style.display = "none"
+            display1 = false
+             if (display == false) {
+                 document.getElementById("div1").style.display = "block"
+                 display = true
+             } else {
+                 document.getElementById("div1").style.display = "none"
+                 display = false
+ 
+             }
+ 
+         }
+     </script>
+     <div class="crops" id="div2">
+        <table>
+            <tr>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Rupees</th>
+              <th>Farmer Name</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td><img src="https://thumbs.dreamstime.com/z/single-corn-isolated-white-background-51131504.jpg" alt="Product 1" class="image"></td>
+              <td>Product 1</td>
+              <td>10</td>
+              <td>100</td>
+              <td>Farmer A</td>
+              <td><button class="button">Accept Order</button></td>
+            </tr>
+            <tr>
+              <td><img src="https://5.imimg.com/data5/ST/QW/MY-38700875/fresh-wheat-crop-500x500.jpg" alt="Product 2" class="image"></td>
+              <td>Product 2</td>
+              <td>20</td>
+              <td>200</td>
+              <td>Farmer B</td>
+              <td><button class="button">Accept Order</button></td>
+            </tr>
+            <tr>
+              <td><img src="https://c8.alamy.com/zooms/9/ce1433ae4eb44ecfbdabf6b99e57d438/prt28n.jpg" alt="Product 3" class="image"></td>
+              <td>Product 3</td>
+              <td>30</td>
+              <td>300</td>
+              <td>Farmer C</td>
+              <td><button class="button">Accept Order</button></td>
+            </tr>
+          </table>
+    </div>
+    <script>
+        let display1=false
+       
+         function crops() {
+            document.getElementById("div1").style.display = "none"
+            display=false
+             if (display1 == false) {
+                 document.getElementById("div2").style.display = "block"
+                 display1 = true
+             } else {
+                 document.getElementById("div2").style.display = "none"
+                 display1 = false
+ 
+             }
+ 
+         }
+     </script>
+     <div class="dashboard" id="div3">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+      <script>
+        // Create the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+    
+        // Create the line geometry and material
+        const geometry = new THREE.BufferGeometry();
+        const material = new THREE.LineBasicMaterial({ color: 0xffffff });
+    
+        // Set the positions of the line vertices
+        const positions = [];
+        positions.push(0, 0, 0); // starting point
+        positions.push(1, 1, 1); // next point
+        positions.push(2, 2, 2); // next point
+        positions.push(3, 3, 3); // next point
+        positions.push(4, 4, 4); // next point
+    
+        // Set the line geometry attributes
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    
+        // Create the line and add it to the scene
+        const line = new THREE.Line(geometry, material);
+        scene.add(line);
+    
+        // Set the camera position
+        camera.position.z = 5;
+    
+        // Render the scene
+        function animate() {
+          requestAnimationFrame(animate);
+          renderer.render(scene, camera);
+        }
+        animate();
+      </script>
+    </div>
+   </body>
+</html>
